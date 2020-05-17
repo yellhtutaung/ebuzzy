@@ -11,6 +11,9 @@ let socket = require('socket.io');
 
     const bodyparsar = require('body-parser');
 
+    app.use(bodyparsar.urlencoded({ extended: true})); // These code must me upper of the controller include
+    app.use(bodyparsar.json()); // These code must me upper of the controller include
+
     const SaveController = require('./controllers/saveControllers');  //connect to {{ controller }}
 
     let server = app.listen(3001, function () {
@@ -32,11 +35,7 @@ let socket = require('socket.io');
 
     
 
-    app.use(bodyparsar.urlencoded({
-        extended: true
     
-    }));
-    app.use(bodyparsar.json());
 
     app.use('/',SaveController);
 
