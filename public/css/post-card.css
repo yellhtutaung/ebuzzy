@@ -1,0 +1,23 @@
+.post-card{
+
+    width: 100%;
+    height: auto;
+    padding: 10px;
+
+}
+.post-card-profile{
+    width: 15%;
+    height: auto;
+    border-radius: 50%;
+}
+.post-paragraph{
+    padding: 10px;
+}
+.custom-box-shadow{
+    -webkit-box-shadow: 0px 1px 1.1px 0px rgba(0,0,0, 0.75);
+    -moz-box-shadow: 0px 1px 1.1px 0px rgba(0,0,0, 0.75);
+    box-shadow: 0px 1px 1.1px 0px rgba(0,0,0, 0.75);
+}
+.bg-milk{
+    background: linear-gradient(#f8f8f8, #fff);
+}
