@@ -7,17 +7,11 @@ const PostTB = mongoose.model('buzzy_posts');
 
     router.get('/',(req,res) => {
         
+        var sort = { _id: -1 };
         
         PostTB.find((err, docs) => {
 
             console.log('DOCS ===== >>' + docs);
-
-            // for (let i = 0; i < docs.length; i++) {
-            //     docs[i]._id;
-
-            //     console.log('This is looping --> '+docs[i]._id );
-                
-            // }
 
             if(!err){
                  res.render('index',{
@@ -29,8 +23,7 @@ const PostTB = mongoose.model('buzzy_posts');
             }else{
                 res.json('Index Display Error' +err );
                 console.log('Index Display Error' + err ); 
-            }
-            
+            }            
             
         });
 
