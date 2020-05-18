@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 
 var ebuzzySchema = new mongoose.Schema({
 
+    CustomId:{
+        type: Number,
+        autoIncrement: true,
+        primaryKey: true
+    },
     PosterName:{
         type: String,
         required: 'This field is required'
@@ -10,10 +15,10 @@ var ebuzzySchema = new mongoose.Schema({
         type: String
     },
     Status:{
-        type: String,
+        type: Number,
         required: 'Staus is required'
     }
 
 });
 
-mongoose.model('post_info',ebuzzySchema);
+mongoose.model('buzzy_posts',ebuzzySchema);

@@ -1,6 +1,7 @@
 const MongoClient = require('mongoose');
 
-    MongoClient.connect('mongodb://localhost:27017/ebuzzy' ,  { useNewUrlParser: true } ,(err)=> {
+    MongoClient.connect('mongodb://localhost:27017/ebuzzy' ,  { useUnifiedTopology: true,
+    useNewUrlParser: true } ,(err)=> {
         if (!err){
             console.log('MongoDB successfuly connected');
         }else {

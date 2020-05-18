@@ -14,29 +14,29 @@ $('.add-name').keyup(function(){
 
 
 
-    // $('.upload-ok').click(function (event) {
+    $('.upload-ok').click(function (event) {
 
-    //     event.preventDefault();
+        event.preventDefault();
+
+            var PresentId = parseInt($('.PresentID').val());
+            console.log(PresentId);
+            var UploaderName = $('.add-name').val();
+            var IncommingBuzzy = $('.buzzy-emotion').val();
     
-    //         let UploaderName = $('.add-name').val();
-    //         var IncommingBuzzy = $('.buzzy-emotion').val();
-    
-    //         if ( UploaderName == '' ){
-    //             alert('Plz fill your name');
-    //         }else if(IncommingBuzzy == '') {
-    //             alert('Type something');
-    //         }else {
+            if ( UploaderName == '' ){
+                alert('Plz fill your name');
+            }else if(IncommingBuzzy == '') {
+                alert('Type something');
+            }else {
              
     
-    //             $.post('/', {UploaderName:UploaderName,UploaderEmotion:IncommingBuzzy });
-    //             // socket.emit('PostUploading', {UploaderName:UploaderName,UploaderEmotion:IncommingBuzzy});
+                $.post('/', {UploaderName:UploaderName,UploaderEmotion:IncommingBuzzy,CustomID:PresentId });
+                socket.emit('PostUploading', {UploaderName:UploaderName,UploaderEmotion:IncommingBuzzy,CustomID:PresentId});
                 
-    //             // console.log('Ready ' + UploaderName  + IncommingBuzzy);
-    //         }
+                // console.log('Ready ' + UploaderName  + IncommingBuzzy);
+            }
     
-    // });
-
-
+    });
 
 
 // Return Back From Server JS

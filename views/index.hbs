@@ -1,16 +1,16 @@
 <!-- Start your project here-->
 
 <!--Navbar-->
-    <nav style="background-color: black;" class="navbar navbar-expand-lg  ">
+    <nav style="background-color: white;"  class="navbar navbar-expand-lg  ">
         <!-- Navbar brand -->
-        <a class="navbar-brand " href="">
-            <b class="text-white">{{ViewTitle}}</b>
-        </a>
+        <p class="navbar-brand text-black " href="">
+            <b class="text-black">E BUZZY</b>
+        </p>
 
         <!-- Collapse button -->
         <button class="navbar-toggler text-dark " type="button" data-toggle="collapse" data-target="#basicExampleNav"
                 aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="material-icons text-white mt-2">menu</i>
+            <i class="material-icons text-black mt-2">menu</i>
 <!--            <span class="navbar-toggler-icon text-dark"></span>-->
         </button>
 
@@ -22,7 +22,7 @@
 
                 <li class="nav-item">
                     <a class="" data-toggle="modal" data-target="#modalLoginForm">
-                        <i class="material-icons text-white mt-2">add_circle_outline</i>
+                        <i class="material-icons text-black mt-2">add_circle_outline</i>
                     </a>
                 </li>
 
@@ -41,27 +41,35 @@
 <div class="container ">
     <div class="row post-card-out my-2">
 
-        <div class="col-md-8 col-sm-12 offset-md-2  ">
+        <div class="col-md-8 col-sm-12 offset-md-2  post-card-div">
+
             <!-- Post Card -->
-            <div class="post-card bg-milk rounded custom-shadow animated slideInUp">
-                <img class="post-card-profile shadow-sm" src="/img/profiles/1.jpg" alt="user_profile">
-                <h4 class="d-inline-block ml-1 "><b >Eminem</b></h4>
-                <p class="d-inline-block ml-3 text-muted">Aug 31, 2018</p>
-                <div class="card-text my-2">
-                    Marshall Bruce Mathers III, known professionally as Eminem, is an American rapper, songwriter, record producer, record executive, film producer, and actor.
-                    He is consistently cited as one of the greatest and most influential rappers of all time.
-                </div>
-                <div class="row mt-3">
-                    <div class="col-sm-4 ">
-                        <i class="material-icons">favorite_border</i> 4
-                    </div>
-                </div>
-            </div>
+            {{#each list}}
+
+                  <br>
+                    <div class="post-card bg-milk rounded custom-shadow animated slideInUp my-2">
+                        <img class="post-card-profile shadow-sm" src="/img/profiles/1.jpg" alt="user_profile">
+                        <h4 class="d-inline-block ml-1 "><b >{{this.PosterName}}</b></h4>
+                        <p class="d-inline-block ml-3 text-muted">Aug 31, 2018</p>
+                        <div class="card-text my-2">
+                            Custom Text
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4 ">
+                                <i class="material-icons">favorite_border</i> 4
+                            </div>
+                        </div>
+                    </div> 
+
+            {{/each}}
             <!-- Post Card -->
+            
         </div>
 
     </div>
 </div>
+
+
 
 
    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
@@ -76,14 +84,15 @@
             <!--<small>Embed link must be  <a href="https://www.youtube.com/embed/mQsjlb-deIQ">SRC</a></small>-->
                 <div class="modal-body">
                     <form method="POST" action="/">
+                        <input type="hidden"  name="PresentID" value="1" class="PresentID" >
                         <div class="md-form form-sm mb-5">
                             <i class="fas fa-user prefix"></i>
-                            <input autofocus="autofocus" type="text" id="PostName" name="PostName" value="Jonathan Morrison " class="form-control form-control-sm add-name ">
+                            <input autofocus="autofocus" type="text" id="PostName" name="UploaderName" value="Jonathan Morrison " class="form-control form-control-sm add-name ">
                             <label data-error="wrong" data-success="right" for="PostName">Name</label>
                         </div>
                         <div class="md-form">
                             <i class="fas fa-pencil-alt prefix"></i>
-                            <textarea name="PostText" id="form10" class="md-textarea form-control buzzy-emotion" rows="3">I am a tall boy but as fat as Targeting mid I gain a little muscle too I guess Winking face</textarea>
+                            <textarea name="UploaderEmotion" id="form10" class="md-textarea form-control buzzy-emotion" rows="3">I am a tall boy but as fat as Targeting mid I gain a little muscle too I guess Winking face</textarea>
                             <label for="form10" class="">What's happening dude ?</label>
                         </div>
                         <div class="text-center mt-4">

@@ -22,53 +22,37 @@ let socket = require('socket.io');
 
     app.use(express.static("public"));
 
-    // app.get('/', function (req, res) {
-    //     res.sendFile(__dirname + '/views/index.html');
-    // }); // static index roue from shitstore folder
-
-    const users = ['Maung Min','Ma Aim Lone','Nga Luu Ma'];
-
     
     app.set('views',path.join(__dirname, '/views/'));
     app.engine('hbs',handlebars({extname:'hbs' ,defaultLayout:'mainLayouts' ,layoutsDir: __dirname + '/views/layouts/' }));
-    app.set('view engine' , 'hbs');
-
-    
-
-    
+    app.set('view engine' , 'hbs');    
 
     app.use('/',SaveController);
 
-
-
     let io = socket(server);
     io.on('connection', function(socket){
-
 
         // app.post("/", function(req, res) {
         //     console.log('po lite pi');
         // });
 
-        // app.post("/", function(req, res, next) {
-        //     io.sockets.emit("ReturnClientSide", req.body);
+        // app.post("/", function(req, res ) {            
         //     res.send({});
         // });
-            
-        // socket.on('PostUploading', function(data){
 
-        //     console.log(data);
+        socket.on('PostUploading', function(data){
 
-        //     io.sockets.emit("ReturnClientSide",data);
-        //     // console.log(data);
+            // console.log(data);
 
-        // });
+            io.sockets.emit("ReturnClientSide",data);
+            // console.log(data);
 
-
+        });
         
 
-        socket.on('NameIsKeyupNow',function(){
-            console.log('Someone is Typing');
-        });
+        // socket.on('NameIsKeyupNow',function(){
+        //     console.log('Someone is Typing');
+        // });
 
         // socket.on('typing', function(data){
         //     socket.broadcast.emit("typing",data);
