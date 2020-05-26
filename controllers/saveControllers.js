@@ -11,11 +11,16 @@ const PostTB = mongoose.model('buzzy_posts');
         
         PostTB.find((err, docs) => {
 
-            console.log('DOCS ===== >>' + docs);
+            // console.log('DOCS ===== >>' + docs);
 
             if(!err){
+
+                // var latest_row = PostTB.find().sort( {CustomId: -1} );
+                // console.log(latest_row);
+
                  res.render('index',{
-                    list:docs
+                    list:docs,
+                    // lastrow : latest_row
                     
                 });
                 // res.json('Temp display');
@@ -41,6 +46,15 @@ const PostTB = mongoose.model('buzzy_posts');
 
         var Ebuzzy = new PostTB();
 
+        var PresentId = req.body.CustomID;
+
+        if(PresentId >= 1){
+            PresentId+1;
+        }else{
+            PresentId = 1;
+        }
+
+        Ebuzzy.CustomId = PresentId;
         Ebuzzy.PosterName = req.body.UploaderName;
         Ebuzzy.PostText = req.body.UploaderEmotion;
         Ebuzzy.Status = 1;

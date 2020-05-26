@@ -5,6 +5,7 @@ require('./models/db');  //connect to {{ models/db.js }}
 const express = require('express');
 const path = require('path');
 const handlebars = require('express-handlebars');
+const device = require('express-device');
 
 const app = express();
 let socket = require('socket.io');

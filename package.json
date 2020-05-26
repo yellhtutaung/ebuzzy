@@ -14,14 +14,15 @@
     "body-parser": "^1.19.0",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
+    "express-device": "^0.4.2",
     "express-handlebars": "^3.0.0",
     "module": "^1.2.5",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.14",
+    "nodemon": "^2.0.4",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "handlebars": "^4.5.0",
-    "nodemon": "^2.0.2"
+    "handlebars": "^4.5.0"
   }
 }

@@ -4,8 +4,7 @@ var ebuzzySchema = new mongoose.Schema({
 
     CustomId:{
         type: Number,
-        autoIncrement: true,
-        primaryKey: true
+        required: "Id fiels is required"
     },
     PosterName:{
         type: String,

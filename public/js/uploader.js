@@ -11,12 +11,19 @@ $('.add-name').keyup(function(){
 
 });
 
+// var detector = new MobileDetect(window.navigator.userAgent)
+//         console.log( "Mobile: " + detector.mobile());
+//         console.log( "Phone: " + detector.phone());
+//         console.log( "Tablet: " + detector.tablet());
+//         console.log( "OS: " + detector.os());
+//         console.log( "userAgent: " + detector.userAgent());
 
 
+    function upload_ok (event) {
 
-    $('.upload-ok').click(function (event) {
+        event.preventDefault();        
 
-        event.preventDefault();
+        $('.md-progress').removeClass("d-none");
 
             var PresentId = parseInt($('.PresentID').val());
             console.log(PresentId);
@@ -36,14 +43,14 @@ $('.add-name').keyup(function(){
                 // console.log('Ready ' + UploaderName  + IncommingBuzzy);
             }
     
-    });
+    };
 
 
 // Return Back From Server JS
 
     socket.on('ReturnClientSide', function(data){
 
-
+        $('.md-progress').addClass("d-none");
         $("#modalLoginForm").removeClass("show");
         $("#modalLoginForm").css("display", "none");
         $("#modalLoginForm").removeAttr("aria-modal");
@@ -53,7 +60,7 @@ $('.add-name').keyup(function(){
         $(".add-name").val('');
         $('.buzzy-emotion').val('');
 
-        $('.post-card-out').append('<div class="col-md-8 col-sm-12 offset-md-2 my-2"><div class="post-card bg-milk rounded custom-shadow animated slideInUp ">' +
+        $('.post-card-out').prepend('<div class="col-md-8 col-sm-12 offset-md-2 mt-1 sm-mb-2"><div class="post-card bg-milk rounded custom-shadow animated slideInDown  ">' +
             '<img class="post-card-profile shadow-sm" src="/img/profiles/1.jpg" alt="user_profile">' +
             '<h4 class="d-inline-block ml-1 "><b >'+data.UploaderName+'</b></h4><p class="d-inline-block ml-3 text-muted">Aug 31, 2018</p><div class="card-text my-2">' +data.UploaderEmotion+
             '</div><div class="row mt-3"><div class="col-sm-4 "><i class="material-icons">favorite_border</i> 4</div></div></div></div>');

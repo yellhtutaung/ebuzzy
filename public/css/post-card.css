@@ -21,3 +21,40 @@
 .bg-milk{
     background: linear-gradient(#f8f8f8, #fff);
 }
+
+
+
+/* // Recording  */
+
+.notrec{
+	/* background-color: darkred; */
+}
+
+.rec{
+    /* width: 150px; */
+    /* height: 150px; */
+    border-radius: 50%;
+    background-color:transparent;
+    /* font-size: 20px; */
+    /* text-align: center; */
+    /* line-height: 150px; */
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+	animation: pulsing 2s linear infinite;
+}
+
+/* Animation */
+
+@keyframes pulsing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 64, 0.7), 0 0 0 0 rgba(255, 0, 64, 0.7);
+    }
+    40% {
+        box-shadow: 0 0 0 50px rgba(255, 0, 64, 0), 0 0 0 0 rgba(255, 0, 64, 0.7);
+    }
+    80% {
+        box-shadow: 0 0 0 50px rgba(255, 0, 64, 0), 0 0 0 30px rgba(255, 0, 64, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 64, 0), 0 0 0 30px rgba(255, 0, 64, 0);
+    }
+}

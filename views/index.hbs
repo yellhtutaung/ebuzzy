@@ -45,12 +45,14 @@
 
             <!-- Post Card -->
             {{#each list}}
-
                   <br>
-                    <div class="post-card bg-milk rounded custom-shadow animated slideInUp my-2">
+                    <div class="post-card bg-milk rounded custom-shadow ">
+                <h1 >{{lastrow}}</h1>
+
                         <img class="post-card-profile shadow-sm" src="/img/profiles/1.jpg" alt="user_profile">
-                        <h4 class="d-inline-block ml-1 "><b >{{this.PosterName}}</b></h4>
-                        <p class="d-inline-block ml-3 text-muted">Aug 31, 2018</p>
+                        <h5 class="d-inline-block ml-1 "><b >{{this.PosterName}}</b></h5>
+                        <small >Aug 31, 2018</small>
+                        {{!-- <p class="d-inline-block ml-3 text-muted">Aug 31, 2018</p> --}}
                         <div class="card-text my-2">
                             {{this.PostText}}
                         </div>
@@ -69,39 +71,45 @@
     </div>
 </div>
 
-
-
-
-   <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">OPEAN YOUR HEART</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            <!--<small>Embed link must be  <a href="https://www.youtube.com/embed/mQsjlb-deIQ">SRC</a></small>-->
-                <div class="modal-body">
-                    <form method="POST" action="/">
-                        <input type="hidden"  name="PresentID" value="1" class="PresentID" >
-                        <div class="md-form form-sm mb-5">
-                            <i class="fas fa-user prefix"></i>
-                            <input autofocus="autofocus" type="text" id="PostName" name="UploaderName" value="Jonathan Morrison " class="form-control form-control-sm add-name ">
-                            <label data-error="wrong" data-success="right" for="PostName">Name</label>
-                        </div>
-                        <div class="md-form">
-                            <i class="fas fa-pencil-alt prefix"></i>
-                            <textarea name="UploaderEmotion" id="form10" class="md-textarea form-control buzzy-emotion" rows="3">I am a tall boy but as fat as Targeting mid I gain a little muscle too I guess Winking face</textarea>
-                            <label for="form10" class="">What's happening dude ?</label>
-                        </div>
-                        <div class="text-center mt-4">
-                            <button class="btn btn-dark mt-1 upload-ok">Post
-                                <i class="fas fa-sign-in ml-1"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">
+                    <a>
+                        <i id="rec-btn" class="fa fa-microphone"  ></i>
+                    </a>
+                &nbsp OPEAN YOUR HEART</h4>
+                <small class="text-danger result-spech"></small>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+        <!--<small>Embed link must be  <a href="https://www.youtube.com/embed/mQsjlb-deIQ">SRC</a></small>-->
+            <div class="modal-body">
+                <form method="POST" action="/">
+                    <input type="hidden"  name="PresentID" value="" class="PresentID" >
+                    <div class="md-form form-sm mb-5">
+                        <i class="fas fa-user prefix"></i>
+                        <input  type="text" id="PostName" data-permission="0" data-name-permission="0" name="UploaderName"
+                         class="form-control form-control-sm add-name ">
+                        <label data-error="wrong" data-success="right" for="PostName">Name</label>
+                    </div>
+                    <div class="md-form">
+                        <i class="fas fa-pencil-alt prefix"></i>
+                        <textarea data-confirm="0" name="UploaderEmotion" id="Emotion" class="md-textarea form-control buzzy-emotion" rows="3"></textarea>
+                        <label for="Emotion" class="">What's happening dude ?</label>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button  class="btn btn-dark mt-1 " onclick="upload_ok(event)">Post
+                            <i class="fas fa-sign-in ml-1"></i>
+                        </button>
+                    </div>
+                </form>                
+            </div>            
         </div>
-   </div>
+        <div class="progress d-none md-progress primary-color-dark">
+            <div class="indeterminate"></div>
+        </div>
+    </div>
+</div>
